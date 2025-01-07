@@ -29,15 +29,15 @@ package alerting
 
 import (
 	"fmt"
+	log "github.com/cihub/seelog"
 	config2 "infini.sh/console/config"
 	"infini.sh/framework/core/config"
 	"infini.sh/framework/core/env"
 	"infini.sh/framework/core/global"
 	"infini.sh/framework/core/kv"
-	log "src/github.com/cihub/seelog"
 )
 
-func GetEnvVariables() (map[string]interface{}, error){
+func GetEnvVariables() (map[string]interface{}, error) {
 	configFile := global.Env().GetConfigFile()
 	envVariables, err := config.LoadEnvVariables(configFile)
 	if err != nil {
@@ -64,7 +64,7 @@ func GetEnvVariables() (map[string]interface{}, error){
 	return envVariables, nil
 }
 
-func GetInnerConsoleEndpoint() (string, error){
+func GetInnerConsoleEndpoint() (string, error) {
 	appConfig := &config2.AppConfig{
 		UI: config2.UIConfig{},
 	}

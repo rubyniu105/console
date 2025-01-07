@@ -33,7 +33,7 @@ import (
 	"fmt"
 	"github.com/buger/jsonparser"
 	log "github.com/cihub/seelog"
-	"github.com/gopkg.in/gomail.v2"
+	"gopkg.in/gomail.v2"
 	"infini.sh/console/model"
 	"infini.sh/console/model/alerting"
 	"infini.sh/console/plugin/api/email/common"
@@ -43,7 +43,6 @@ import (
 	"infini.sh/framework/core/util"
 	"net/http"
 	"strconv"
-	"time"
 )
 
 func (h *EmailAPI) createEmailServer(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
@@ -379,7 +378,8 @@ func (h *EmailAPI) testEmailServer(w http.ResponseWriter, req *http.Request, ps 
 	message.SetHeader("Subject", "INFINI platform test email")
 
 	message.SetBody("text/plain", "This is just a test email, do not reply!")
-	d := gomail.NewDialerWithTimeout(reqBody.Host, reqBody.Port, reqBody.Auth.Username, reqBody.Auth.Password.Get(), 3*time.Second)
+	//d := gomail.NewDialerWithTimeout(reqBody.Host, reqBody.Port, reqBody.Auth.Username, reqBody.Auth.Password.Get(), 3*time.Second)
+	d := gomail.NewDialer(reqBody.Host, reqBody.Port, reqBody.Auth.Username, reqBody.Auth.Password.Get())
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 	d.SSL = reqBody.TLS
 

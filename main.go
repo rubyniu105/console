@@ -62,6 +62,7 @@ import (
 	"infini.sh/framework/modules/task"
 	"infini.sh/framework/modules/web"
 	_ "infini.sh/framework/plugins"
+	_ "infini.sh/framework/plugins/badger"
 )
 
 var appConfig *config.AppConfig

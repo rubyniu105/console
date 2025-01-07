@@ -25,7 +25,7 @@ package main
 
 import (
 	"fmt"
-	public "infini.sh/console/.public"
+	//public "infini.sh/console/.public"
 	"net/http"
 
 	log "github.com/cihub/seelog"
@@ -43,7 +43,7 @@ type UI struct {
 
 func (h UI) InitUI() {
 
-	vfs.RegisterFS(public.StaticFS{StaticFolder: h.Config.UI.LocalPath, TrimLeftPath: h.Config.UI.LocalPath, CheckLocalFirst: h.Config.UI.LocalEnabled, SkipVFS: !h.Config.UI.VFSEnabled})
+	vfs.RegisterFS(vfs.StaticFS{StaticFolder: h.Config.UI.LocalPath, TrimLeftPath: h.Config.UI.LocalPath, CheckLocalFirst: h.Config.UI.LocalEnabled, SkipVFS: !h.Config.UI.VFSEnabled})
 
 	api.HandleUI("/", vfs.FileServer(vfs.VFS()))
 

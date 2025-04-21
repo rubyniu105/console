@@ -27,6 +27,7 @@ import (
 	"context"
 	"errors"
 	_ "expvar"
+	"fmt"
 	api3 "infini.sh/console/modules/agent/api"
 	"infini.sh/console/plugin/api/email"
 	"infini.sh/console/plugin/audit_log"
@@ -34,6 +35,7 @@ import (
 	"infini.sh/framework/core/host"
 	model2 "infini.sh/framework/core/model"
 	elastic2 "infini.sh/framework/modules/elastic"
+	"os"
 	_ "time/tzdata"
 
 	log "github.com/cihub/seelog"
@@ -69,6 +71,7 @@ var appConfig *config.AppConfig
 var appUI *UI
 
 func main() {
+	fmt.Println(os.Getwd())
 	terminalHeader := ("\n")
 	terminalHeader += ("   ___  ___    __  __    ___  __   __ \n")
 	terminalHeader += ("  / __\\/___\\/\\ \\ \\/ _\\  /___\\/ /  /__\\\n")

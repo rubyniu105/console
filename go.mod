@@ -2,7 +2,7 @@ module infini.sh/console
 
 go 1.23.4
 
-replace infini.sh/framework => D:\Programming\go-version\g\go\src\infini.sh\framework
+replace infini.sh/framework => D:\Programming\go-version\g\versions\1.23.4\src\infini.sh\framework
 
 replace infini.sh/console => ../console
 

@@ -147,6 +147,13 @@ export default [
         ],
         routes: [
           {
+            path: "/insight/dashboard",
+            name: "dashboard",
+            component: "./Insight/Dashboard",
+            authority: ["insight.dashboard:all", "insight.dashboard:read"],
+            exact: false,
+          },
+          {
             path: "/insight/discover",
             name: "discover",
             component: "./DataManagement/Discover",
